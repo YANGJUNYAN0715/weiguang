@@ -11,7 +11,7 @@ const pool = mysql.createPool({
     host: config.database.HOST
     user: config.database.USER
     password: config.database.PASSWORD
-    database: config.database.WEIGUANG
+    database: config.database.DATABASE
 })
 
 let bdbs = (sql,value)=>{
@@ -50,7 +50,8 @@ let createDatabase = (db) =>{
     return bdbs(db,[])
 }
 // 创建数据表
-let walls = `create table if not exits walls{
+let walls = 
+    `create table if not exits walls(
     id INT NOT NULL AUTO_INCREMENT,
     type INT NOT NULL COMMENT '类型0时候为图片', 
     message VARCHAR(1000) COMMENT '留言',
@@ -61,7 +62,7 @@ let walls = `create table if not exits walls{
     color INT COMMENT '颜色',
     imgurl VARCHAR(100) COMMENT '图片路径',
     PRIMARY KEY (id)
-}`
+    );`
 
 let feedbacks = 
     `create table if not exists feedbacks(
@@ -71,8 +72,7 @@ let feedbacks =
     type INT NOT NULL COMMENT '反馈类型0喜欢1举报2撤销',
     moment VARCHAR(100) NOT NULL COMMENT '时间',
     PRIMARY KET (id)
-    );
-    `
+    );`
 
 let comments = 
     `create table if not exists comments(
@@ -84,8 +84,7 @@ let comments =
     name VARCHAR(100) NOT NULL COMMENT '用户名',
     moment VARCHAR(100) NOT NULL COMMENT '时间',
     PRIMARY KET (id)
-    );
-    `
+    );`
 
 let createTable = (sql) =>{
     return query(sql,[])
