@@ -1,15 +1,13 @@
 # weiguang
 
-## Project setup
+## Project setup and Compiles
 
 ```
+cd web
 npm install
-```
-
-### Compiles and hot-reloads for development
-
-```
 npm run serve
+cd ../server
+nodemon index
 ```
 
 ### Compiles and minifies for production
