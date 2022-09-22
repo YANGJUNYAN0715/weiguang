@@ -43,3 +43,5 @@ Junyan Yang([1310204834@qq.com](mailto:1310204834@qq.com)) -- writes the main co
   - Add WgModel for adding new messages
 - 21.09.2022 - 6
   - Modify WgModel
+- 22.09.2022 - 7
+  - Design database table and
