@@ -43,4 +43,5 @@ Junyan Yang([1310204834@qq.com](mailto:1310204834@qq.com)) -- writes the main co
   - Modify WgModel
 - 22.09.2022 - 7
   - Design database table
+- 01.11.2022 - 8
   - Build database table
