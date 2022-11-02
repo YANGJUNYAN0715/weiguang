@@ -10,6 +10,7 @@ export const wallType = [
 ];
 export const label = [
   ["留言", "目标", "过去", "信条", "爱情", "友情", "亲情", "秘密", "无题"],
+  ["我", "朋友", "风景", "成长", "旅途"],
 ];
 export const cardColor = [
   "rgba(252,175,162,0.30)",

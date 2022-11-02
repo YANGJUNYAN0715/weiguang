@@ -44,20 +44,20 @@ let query = (sql, values) => {
   });
 };
 // 创建数据库
-let weiGuang = `create database if not exists WEIGUANG default charset utf8 collate utf8_general_ci`;
+let weiGuang = `create database if not exists weiguang default charset utf8 collate utf8_general_ci;`;
 let createDatabase = (db) => {
   return bdbs(db, []);
 };
 // 创建数据表
-let walls = `create table if not exits walls(
+let walls = `create table if not exists walls(
     id INT NOT NULL AUTO_INCREMENT,
-    type INT NOT NULL COMMENT '类型0信息1图片', 
+    type INT NOT NULL COMMENT '类型 0:文字 1:图片', 
     message VARCHAR(1000) COMMENT '留言',
     name VARCHAR(100) NOT NULL COMMENT '用户名',
     userId VARCHAR(100) NOT NULL COMMENT '创建者ID',
     moment VARCHAR(100）NOT NULL COMMENT '时间',
     label INT NOT NULL COMMENT '标签',
-    color INT COMMENT '颜色',
+    color INT NOT NULL COMMENT '颜色',
     imgurl VARCHAR(100) COMMENT '图片路径',
     PRIMARY KEY (id)
 )`;
@@ -94,4 +94,10 @@ async function create() {
   createTable(comments);
 }
 
-create();
+// create();
+
+exports.insertWall = (value) => {
+  let _sql =
+    "insert into walls set message=?,name=?,userId=?,moment=?,label=?,color=?";
+  return query(_sql, value);
+};

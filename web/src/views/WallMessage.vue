@@ -20,13 +20,16 @@
         {{ item }}
       </p>
     </div>
-    <div class="card" :style="{ width: nWidth + 'px' }">
+    <div class="card" :style="{ width: nWidth + 'px' }" v-show="id == 0">
       <note-card
         v-for="(item, index) in note"
         :key="index"
         :note="item"
         :width="'360px'"
       ></note-card>
+    </div>
+    <div class="photo" v-show="id == 1">
+      <img :src="require('../photo/0.jpg')" />
     </div>
     <div
       class="add"
@@ -47,20 +50,26 @@ import { wallType, label } from "@/utils/data";
 import noteCard from "../components/NoteCard.vue";
 import newCard from "../components/NewCard.vue";
 import wgModel from "../components/WgModel.vue";
-import { note } from "../mock/index.js";
+import { note, photo } from "../mock/index.js";
 export default {
   data() {
     return {
       wallType,
       label,
-      id: 0,
+      // id: 0,
       nlabel: 0,
       note: note.data,
+      photo: photo.data,
       nWidth: 0,
       addbottom: 30,
       model: false,
       title: "添加留言",
     };
+  },
+  computed: {
+    id() {
+      return this.$route.query.id;
+    },
   },
   methods: {
     selectNode(index) {

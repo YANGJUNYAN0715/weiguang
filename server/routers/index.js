@@ -4,4 +4,7 @@ module.exports = function (app) {
     res.type("html");
     res.render("test");
   });
+  app.post("/insertWall", (req, res) => {
+    controller.insertWall(req, res);
+  });
 };

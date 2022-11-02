@@ -32,7 +32,7 @@ app.set("view engine", "html");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// require("./routers/index")(app);
+require("./routers/index")(app);
 
 app.listen(config.port, () => {
   console.log(`启动了端口${config.port}`);

@@ -5,8 +5,8 @@
       <p class="logoName">微光</p>
     </div>
     <div class="menu">
-      <wg-button>留言墙</wg-button>
-      <wg-button>照片墙</wg-button>
+      <wg-button @click="changeWall(0)">留言墙</wg-button>
+      <wg-button @click="changeWall(1)">照片墙</wg-button>
     </div>
     <div class="user">
       <div class="userHead"></div>
@@ -22,6 +22,16 @@ export default {
   },
   components: {
     wgButton,
+  },
+  computed: {
+    id() {
+      return this.$route.query.id;
+    },
+  },
+  methods: {
+    changeWall(e) {
+      this.$router.push({ query: { id: e } });
+    },
   },
 };
 </script>
